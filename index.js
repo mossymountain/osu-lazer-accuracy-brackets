@@ -29,7 +29,7 @@ parser.add_argument('--verbose', {action: 'store_true'});
 parser.add_argument('--no-separate-perfect', {action: 'store_false', dest: 'separate_perfect', default: true,
 	help: 'Do not separate perfect scores to their own bracket prior to calculating brackets from the scores. (it will be done by default)'});
 parser.add_argument('--mod-combinations', {default: mod_combinations,
-	help: `comma-separated list of comma-separated (or unseparated two-letter) mod abbreviations, E.G. ${JSON.stringify(mod_combinations)}`});
+	help: `comma-separated lists of two-letter mod abbreviations, E.G. ${JSON.stringify(mod_combinations)}`});
 const args = parser.parse_args();
 const client_realm_file_path = args.client_realm_file_path;
 const verbose = args.verbose;
