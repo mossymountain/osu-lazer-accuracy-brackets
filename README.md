@@ -27,3 +27,4 @@ Now you can use `run.bat` (Windows) or `run.sh` (Linux, MacOS) to generate the b
 * **I'm very inexperienced in JS and I fully expect things to look quite dumb [in there](https://github.com/mossymountain/osu-lazer-accuracy-brackets/blob/main/index.js). Please tell me what I'm doing wrong!**
 * I already wrote something like this in Python for osu!classic in 2017 but that codebase is so janky and bloated I don't feel like publishing it...
 <sub>I might want to revisit that at some point for a clean version that does just this, but I don't currently *need* that version as I use osu!lazer.</sub>
+* [osu! forum post about this project](https://osu.ppy.sh/community/forums/topics/1801261)
