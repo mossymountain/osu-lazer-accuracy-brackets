@@ -13,7 +13,11 @@ for arg in "$@";do
 	fi
 done
 if ((realm_found==0));then
-	realm="${HOME}/.local/share/osu/client.realm"
+	if [[ "${OSTYPE}" == "darwin"* ]];then
+		realm=~/'Library/Application Support/osu/client.realm'
+	else
+		realm=~/'.local/share/osu/client.realm'
+	fi
 	if [[ -f "${realm}" ]];then
 		cmd+=("${realm}")
 	else
