@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "osu-lazer-accuracy-brackets",
+  "version": "1.0.0",
+  "description": "Add auto-generated brackets to your osu!lazer client.realm db based on the scores in it",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js client.realm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mossymountain/osu-lazer-accuracy-brackets.git"
+  },
+  "author": "mossymountain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mossymountain/osu-lazer-accuracy-brackets/issues"
+  },
+  "homepage": "https://github.com/mossymountain/osu-lazer-accuracy-brackets#readme",
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "realm": "^11.10.1"
+  }
+}
