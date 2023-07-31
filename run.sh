@@ -4,7 +4,15 @@ index="$(dirname "$(readlink -fm "$0")")/index.js"
 cmd=(node "${index}")
 if [[ $# -gt 0 ]];then
 	cmd+=("$@")
-else
+fi
+realm_found=0
+for arg in "$@";do
+	if [[ "${arg}" =~ .*[.]realm$ ]];then
+		realm_found=1
+		break
+	fi
+done
+if ((realm_found==0));then
 	realm="${HOME}/.local/share/osu/client.realm"
 	if [[ -f "${realm}" ]];then
 		cmd+=("${realm}")
