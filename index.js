@@ -26,6 +26,8 @@ parser.add_argument('--graceperiod-days', {type: 'int', default: 7,
 parser.add_argument('--number-of-brackets', {type: 'int', default: legacy_brackets.length,
 	help: `number of brackets to generate, defaults to ${legacy_brackets.length}, for example: [${legacy_brackets.join(' ')}]`});
 parser.add_argument('--verbose', {action: 'store_true'});
+parser.add_argument('--read-only', '--dry-run', {action: 'store_true', default: false,
+	help: "Don't modify osu!'s database in any way (open as read-only)"});
 parser.add_argument('--no-separate-perfect', {action: 'store_false', dest: 'separate_perfect', default: true,
 	help: 'Do not separate perfect scores to their own bracket prior to calculating brackets from the scores. (it will be done by default)'});
 parser.add_argument('--mod-combinations', {default: mod_combinations,
@@ -94,6 +96,7 @@ const realm = await Realm.open({
 	],
 	schemaVersion: 32,
 	path: client_realm_file_path,
+	readOnly: args.read_only,
 });
 
 function is_legacy_beatmapcollection_name(n) {
@@ -527,11 +530,14 @@ function write_collections(collections, realm) {
 }
 
 let collections = fill_collections(realm);
-delete_rename_old(realm)
 
-//prettyprint_collections(collections);
-
-write_collections(collections, realm);
+if (args.read_only) {
+	prettyprint_collections(collections);
+	console.log(`\x1b[1;37mREAD ONLY\x1b[m, not writing to db`);
+} else {
+	delete_rename_old(realm)
+	write_collections(collections, realm);
+}
 
 realm.close();
 process.exit(0);
