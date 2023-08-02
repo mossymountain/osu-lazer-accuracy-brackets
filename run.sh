@@ -1,6 +1,14 @@
 #!/bin/bash
 set -eu
-index="$(dirname "$(readlink -fm "$0")")/index.js"
+#index="$(dirname "$(readlink -fm "$0")")/index.js" # Does not work on MacOS
+cd "$(dirname -- "${BASH_SOURCE[0]}")"
+script="$(basename -- "${BASH_SOURCE[0]}")"
+while [[ -L "${script}" ]];do
+	l="$(readlink -- "${script}")"
+	cd "$(dirname -- "${l}")"
+	script="$(basename -- "${l}")"
+done
+index='./index.js'
 cmd=(node "${index}")
 if [[ $# -gt 0 ]];then
 	cmd+=("$@")
