@@ -376,7 +376,7 @@ function too_early(beatmap_md5, type_key) {
 		let score = scores[i];
 		if (mods_to_type_key(score.Mods) === type_key) {
 			if (graceperiod_play_count > 0 && realm.objects("Score").filtered("Date > $0", score.Date).length >= graceperiod_play_count) {
-				return false;
+				continue;
 			}
 			if (verbose) {
 				console.log('TOO EARLY!!: ' + format_score(score));
