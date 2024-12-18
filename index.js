@@ -451,6 +451,9 @@ function fill_collections(realm, collections) {
 			return;
 		}
 		let best_scores = best_scores_by_type_key[type_key];
+		if (score.BeatmapInfo === null) {
+			return;
+		}
 		let md5 = score.BeatmapInfo.MD5Hash;
 		if (md5 in best_scores) {
 			if (best_scores[md5].Accuracy >= score.Accuracy) {
