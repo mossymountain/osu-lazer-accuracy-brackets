@@ -94,7 +94,7 @@ const realm = await Realm.open({
 				client_schema.File,
 			client_schema.RealmUser,
 	],
-	schemaVersion: 32,
+	schemaVersion: 44,
 	path: client_realm_file_path,
 	readOnly: args.read_only,
 });

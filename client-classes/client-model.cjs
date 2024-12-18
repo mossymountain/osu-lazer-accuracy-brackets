@@ -20,20 +20,11 @@ exports.Beatmap = {
     LastLocalUpdate: 'date?',
     LastOnlineUpdate: 'date?',
     Hidden: 'bool',
-    AudioLeadIn: 'double',
-    StackLeniency: 'float',
-    SpecialStyle: 'bool',
-    LetterboxInBreaks: 'bool',
-    WidescreenStoryboard: 'bool',
-    EpilepsyWarning: 'bool',
-    SamplesMatchPlaybackRate: 'bool',
     LastPlayed: 'date?',
-    DistanceSpacing: 'double',
     BeatDivisor: 'int',
-    GridSize: 'int',
-    TimelineZoom: 'double',
     EditorTimestamp: 'double?',
-    CountdownOffset: 'int'
+    EndTimeObjectCount: 'int',
+    TotalObjectCount: 'int'
   }
 }
 
@@ -203,7 +194,11 @@ exports.Score = {
     MaximumStatistics: 'string?',
     Rank: 'int',
     Combo: 'int',
-    IsLegacyScore: 'bool'
+    IsLegacyScore: 'bool',
+    ClientVersion: 'string?',
+    TotalScoreWithoutMods: 'int',
+    BackgroundReprocessingFailed: 'bool',
+    LegacyOnlineID: { type: 'int', indexed: true }
   }
 }
 
